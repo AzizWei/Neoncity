@@ -61,9 +61,97 @@ header {
   height: var(--header-height);
   padding: 0 var(--header-right-left-padding);
 }
+header a.logo {
+  font-size: 2rem;
+  line-height: 1em;
+}
+header nav {
+  width: 40%;
+  min-width: 300px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10%;
+  font-size: 0.9rem;
+}
+header nav a {
+  position: relative;
+}
+header nav a::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0%;
+  height: 3px;
+  border-radius: 3px;
+  background-color: var(--text-color);
+  transition: ease 0.3s;
+}
+header nav a:hover::before {
+  width: 100%;
+  left: 0;
+}
+header i {
+  display: none;
+  color: var(--text-color);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+header i:hover {
+  color: var(--second-color);
+}
 
 .content {
   justify-content: flex-start;
   height: var(--content-height);
   padding-left: var(--body-left-padding);
+  position: relative;
+}
+.content .info {
+  z-index: 1;
+}
+.content .info h2 {
+  font-size: 3rem;
+  line-height: 1.2em;
+}
+.content .info h2:nth-child(3) {
+  color: var(--second-color);
+}
+.content .info h2:nth-child(3)::after {
+  content: ".";
+  color: var(--text-color);
+}
+.content .info h3 {
+  font-weight: 300;
+  font-size: 0.9rem;
+  margin: 2rem 0;
+}
+.content .info a {
+  border: 1px solid #fff;
+  padding: 0.9rem 2rem;
+  border-radius: 3rem;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+.content .info a:first-child {
+  color: var(--primary-color);
+  background-color: var(--text-color);
+}
+.content .info a:hover {
+  color: var(--second-color);
+  background: var(--primary-color);
+  border-color: var(--second-color);
+}
+.content .btn-group {
+  display: flex;
+  gap: 1rem;
+}
+.content .background-svg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
 }
