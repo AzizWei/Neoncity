@@ -42,14 +42,6 @@ a {
 }
 
 header, .content {
-  border: 3px dashed var(--text-color);
-}
-
-.content {
-  border-top: none;
-}
-
-header, .content {
   display: flex;
   position: relative;
   align-items: center;
@@ -60,6 +52,7 @@ header {
   justify-content: space-between;
   height: var(--header-height);
   padding: 0 var(--header-right-left-padding);
+  transition: none;
 }
 header a.logo {
   font-size: 2rem;
@@ -106,7 +99,7 @@ header i:hover {
   justify-content: flex-start;
   height: var(--content-height);
   padding-left: var(--body-left-padding);
-  position: relative;
+  overflow: hidden;
 }
 .content .info {
   z-index: 1;
@@ -149,9 +142,17 @@ header i:hover {
 }
 .content .background-svg {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow: hidden;
+  inset: 0;
+  transform: scale(60%) translate(0, -50%);
+}
+
+.loading {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 6rem;
+  background: var(--primary-color);
 }
